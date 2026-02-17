@@ -4,6 +4,6 @@ services:
     build: .
     container_name: clinica-system-app-v1
     ports:
-      - "80:80"
+      - "84:84"
     # REMOVA A LINHA DE VOLUMES
     restart: always
