@@ -1,0 +1,216 @@
+{
+    "Maputo": {
+        "Maputo Cidade": [
+            "Bairro Central",
+            "Polana Cimento",
+            "Sommerschield",
+            "Malhangalene",
+            "Maxaquene",
+            "Chamanculo",
+            "Museu",
+            "Coop",
+            "Laulane",
+            "Urbanização",
+            "Albazine",
+            "Zimpeto",
+            "Costa do Sol",
+            "Triunfo"
+        ],
+        "Matola": [
+            "Bairro 1",
+            "Bairro 2",
+            "Liberdade",
+            "Tsalala",
+            "Boquisso",
+            "Machava Sede",
+            "Matola Gare",
+            "Infulene",
+            "Matlemele",
+            "Khongolote",
+            "Ndlavela"
+        ]
+    },
+    "Gaza": {
+        "Xai-Xai": [
+            "Bairro Patrice Lumumba",
+            "Bairro Eduardo Mondlane",
+            "Bairro 3",
+            "Bairro 5",
+            "Bairro 25 de Junho",
+            "Chongoene"
+        ],
+        "Chibuto": [
+            "Bairro Mavuzi",
+            "Bairro Mungazine",
+            "Bairro Eduardo Mondlane"
+        ],
+        "Chókwè": [
+            "Bairro 1",
+            "Bairro 2",
+            "Lionde",
+            "Macarretane"
+        ]
+    },
+    "Inhambane": {
+        "Inhambane Cidade": [
+            "Bairro Maxixe",
+            "Bairro Chicuque",
+            "Bairro Liberdade",
+            "Bairro Josina Machel"
+        ],
+        "Maxixe": [
+            "Bairro Eduardo Mondlane",
+            "Bairro 7 de Abril",
+            "Bairro 25 de Junho",
+            "Bairro Chambone"
+        ],
+        "Vilankulo": [
+            "Bairro Central",
+            "Bairro Mahave",
+            "Bairro Palmeiras"
+        ]
+    },
+    "Sofala": {
+        "Beira": [
+            "Macurungo",
+            "Ponta-Gêa",
+            "Estoril",
+            "Chingussura",
+            "Manga",
+            "Matacuane",
+            "Munhava"
+        ],
+        "Dondo": [
+            "Bairro Central",
+            "Bairro CFM",
+            "Bairro Nhansato"
+        ]
+    },
+    "Manica": {
+        "Chimoio": [
+            "Bairro 1º de Maio",
+            "Bairro Soalpo",
+            "Bairro 7 de Abril",
+            "Bairro Nhamaonha",
+            "Bairro 4"
+        ],
+        "Manica": [
+            "Bairro Central",
+            "Bairro Nhacolo"
+        ]
+    },
+    "Tete": {
+        "Tete Cidade": [
+            "Bairro Matundo",
+            "Bairro Samora Machel",
+            "Bairro Josina Machel",
+            "Bairro Francisco Manyanga"
+        ],
+        "Moatize": [
+            "Bairro 1",
+            "Bairro 2",
+            "Bairro Nhambalualu"
+        ]
+    },
+    "Zambézia": {
+        "Quelimane": [
+            "1º de Maio",
+            "24 de Julho",
+            "Aeroporto",
+            "Chirangano",
+            "Filipe Samuel Magaia",
+            "Kansa",
+            "Liberdade",
+            "Mapiazua",
+            "Piloto",
+            "Vila Pita Popular",
+            "Saguar A",
+            "Saguar B",
+            "Sinacura",
+            "Torrone Velho",
+            "Coalane II A",
+            "Coalane II B",
+            "Icídua",
+            "Ivagalane",
+            "Janeiro",
+            "Mirazane",
+            "Murropué",
+            "Sangariveira",
+            "25 de Setembro",
+            "17 de Setembro",
+            "Brandão",
+            "Floresta A",
+            "Floresta B",
+            "Inhangome",
+            "Manhaua A",
+            "Manhaua B",
+            "Micajune A",
+            "Micajune B",
+            "Santagua A",
+            "Santagua B",
+            "Bazar",
+            "Gogone",
+            "Mborio",
+            "Megano",
+            "Namuinho"
+        ],
+        "Gurue": [
+            "Bairro M",
+            "Bairro N",
+            "Bairro O"
+        ],
+        "Mocuba": [
+            "Bairro Central",
+            "Bairro 25 de Junho",
+            "Bairro Samora Machel",
+            "Bairro 1º de Maio"
+        ]
+    },
+    "Nampula": {
+        "Nampula Cidade": [
+            "Bairro Muhala",
+            "Bairro Namutequeliua",
+            "Bairro Mutauanha",
+            "Bairro Namicopo",
+            "Bairro Namicopo Expansão"
+        ],
+        "Angoche": [
+            "Bairro Central",
+            "Bairro 25 de Setembro",
+            "Bairro Samora Machel"
+        ],
+        "Monapo": [
+            "Bairro 1",
+            "Bairro 2",
+            "Bairro 3"
+        ]
+    },
+    "Niassa": {
+        "Lichinga": [
+            "Bairro Sanjala",
+            "Bairro Nomba",
+            "Bairro Chiuaula",
+            "Bairro Muchenga",
+            "Bairro Central"
+        ],
+        "Cuamba": [
+            "Bairro Central",
+            "Bairro 25 de Junho",
+            "Bairro 1º de Maio"
+        ]
+    },
+    "Cabo Delgado": {
+        "Pemba": [
+            "Bairro Eduardo Mondlane",
+            "Bairro Ingonane",
+            "Bairro Natite",
+            "Bairro Cariaco",
+            "Bairro Paquitequete"
+        ],
+        "Montepuez": [
+            "Bairro Central",
+            "Bairro Nairoto",
+            "Bairro Milamba"
+        ]
+    }
+}

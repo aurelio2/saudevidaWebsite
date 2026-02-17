@@ -339,15 +339,21 @@
                             </div>
                             <div class="form-field">
                                 <label for="client-province">Província</label>
-                                <input id="client-province" name="province" type="text" maxlength="50" required>
+                                <select id="client-province" name="province" required>
+                                    <option value="" selected disabled>Selecione a província</option>
+                                </select>
                             </div>
                             <div class="form-field">
                                 <label for="client-city">Cidade</label>
-                                <input id="client-city" name="city" type="text" maxlength="50" required>
+                                <select id="client-city" name="city" required disabled>
+                                    <option value="" selected disabled>Selecione a cidade</option>
+                                </select>
                             </div>
                             <div class="form-field">
                                 <label for="client-neighborhood">Bairro</label>
-                                <input id="client-neighborhood" name="neighborhood" type="text" maxlength="50" required>
+                                <select id="client-neighborhood" name="neighborhood" required disabled>
+                                    <option value="" selected disabled>Selecione o bairro</option>
+                                </select>
                             </div>
                             <div class="form-field">
                                 <label for="client-phoneNumber">Contacto</label>
@@ -372,5 +378,92 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        let geoData = {};
+
+        fetch('/clinica-system/mozambique_geo.json')
+            .then(res => res.json())
+            .then(data => {
+                console.log("JSON carregado:", data);
+                geoData = data;
+                loadProvinces();
+            })
+            .catch(err => console.error("Erro ao carregar JSON:", err));
+
+
+        function loadProvinces() {
+            const provinceSelect = document.getElementById("client-province");
+            const districtSelect = document.getElementById("client-city");
+            const neighborhoodSelect = document.getElementById("client-neighborhood");
+            if (!provinceSelect || !districtSelect || !neighborhoodSelect) return;
+
+            provinceSelect.innerHTML = '<option value="" selected disabled>Selecione a província</option>';
+            districtSelect.innerHTML = '<option value="" selected disabled>Selecione a cidade</option>';
+            neighborhoodSelect.innerHTML = '<option value="" selected disabled>Selecione o bairro</option>';
+            districtSelect.disabled = true;
+            neighborhoodSelect.disabled = true;
+
+            Object.keys(geoData).forEach(province => {
+                const option = document.createElement("option");
+                option.value = province;
+                option.textContent = province;
+                provinceSelect.appendChild(option);
+            });
+        }
+
+        function updateDistricts(province) {
+            const districtSelect = document.getElementById("client-city");
+            districtSelect.innerHTML = '<option value="" selected disabled>Selecione a cidade</option>';
+            districtSelect.disabled = true;
+
+            const neighborhoodSelect = document.getElementById("client-neighborhood");
+            neighborhoodSelect.innerHTML = '<option value="" selected disabled>Selecione o bairro</option>';
+            neighborhoodSelect.disabled = true;
+
+            if (geoData[province]) {
+                Object.keys(geoData[province]).forEach(district => {
+                    const option = document.createElement("option");
+                    option.value = district;
+                    option.textContent = district;
+                    districtSelect.appendChild(option);
+                });
+                districtSelect.disabled = false;
+            }
+        }
+
+        function updateNeighborhoods(district) {
+            const neighborhoodSelect = document.getElementById("client-neighborhood");
+            neighborhoodSelect.innerHTML = '<option value="" selected disabled>Selecione o bairro</option>';
+            neighborhoodSelect.disabled = true;
+
+            const province = document.getElementById("client-province").value;
+            if (geoData[province] && geoData[province][district]) {
+                geoData[province][district].forEach(neighborhood => {
+                    const option = document.createElement("option");
+                    option.value = neighborhood;
+                    option.textContent = neighborhood;
+                    neighborhoodSelect.appendChild(option);
+                });
+                neighborhoodSelect.disabled = false;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const provinceSelect = document.getElementById("client-province");
+            const districtSelect = document.getElementById("client-city");
+
+            if (provinceSelect) {
+                provinceSelect.addEventListener('change', function() {
+                    updateDistricts(this.value);
+                });
+            }
+
+            if (districtSelect) {
+                districtSelect.addEventListener('change', function() {
+                    updateNeighborhoods(this.value);
+                });
+            }
+        });
+    </script>
 </body>
 </html>

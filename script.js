@@ -122,6 +122,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const tabButtons = appointmentModal ? appointmentModal.querySelectorAll('[data-tab]') : [];
     const tabPanels = appointmentModal ? appointmentModal.querySelectorAll('[data-panel]') : [];
     const registerForm = document.getElementById('client-register-form');
+    const provinceSelect = document.getElementById('client-province');
+    const citySelect = document.getElementById('client-city');
+    const neighborhoodSelect = document.getElementById('client-neighborhood');
 
     const setTab = function(tabName) {
         if (!appointmentModal) return;
@@ -175,6 +178,24 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    const resetSelect = function(selectEl, placeholder) {
+        if (!selectEl) return;
+        selectEl.innerHTML = '';
+        const opt = document.createElement('option');
+        opt.value = '';
+        opt.disabled = true;
+        opt.selected = true;
+        opt.textContent = placeholder;
+        selectEl.appendChild(opt);
+    };
+
+    const setHint = function(text, isError) {
+        const hint = document.getElementById('client-register-hint');
+        if (!hint) return;
+        hint.textContent = text;
+        hint.style.color = isError ? '#b00020' : '';
+    };
+
     if (registerForm) {
         registerForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -190,30 +211,50 @@ document.addEventListener('DOMContentLoaded', function() {
             const iswhatsapp = registerForm.querySelector('#client-iswhatsapp')?.checked ? '1' : '0';
 
             if (!name || !dateBirth || !bi || !province || !city || !neighborhood || phoneNumber.length !== 9) {
-                const hint = document.getElementById('client-register-hint');
-                if (hint) hint.textContent = 'Por favor, preencha todos os campos. O contacto deve ter 9 dígitos.';
+                setHint('Por favor, preencha todos os campos. O contacto deve ter 9 dígitos.', true);
                 return;
             }
 
-            const messageLines = [
-                'Cadastro de Cliente (site):',
-                `Nome: ${name}`,
-                `Data Nasc.: ${dateBirth}`,
-                `BI: ${bi}`,
-                `Província: ${province}`,
-                `Cidade: ${city}`,
-                `Bairro: ${neighborhood}`,
-                `Contacto: ${phoneNumber}`,
-                `WhatsApp: ${iswhatsapp}`
-            ];
+            formData.set('phoneNumber', phoneNumber);
+            formData.set('iswhatsapp', iswhatsapp);
 
-            const message = messageLines.join('\n');
-            const waNumber = '258861661018';
-            const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`;
-            window.open(url, '_blank', 'noopener,noreferrer');
+            const submitBtn = registerForm.querySelector('button[type="submit"]');
+            if (submitBtn) submitBtn.disabled = true;
+            setHint('A enviar cadastro...', false);
 
-            const hint = document.getElementById('client-register-hint');
-            if (hint) hint.textContent = 'Abrimos o WhatsApp com os seus dados. Envie a mensagem para concluir.';
+            fetch('patient_register.php', {
+                method: 'POST',
+                body: formData
+            })
+                .then(async (res) => {
+                    const data = await res.json().catch(() => ({}));
+                    if (!res.ok || !data.success) {
+                        const msg = data && data.error ? data.error : 'Não foi possível enviar o cadastro.';
+                        throw new Error(msg);
+                    }
+                    return data;
+                })
+                .then(() => {
+                    setHint('Cadastro enviado com sucesso.', false);
+                    registerForm.reset();
+                    if (provinceSelect && citySelect && neighborhoodSelect) {
+                        if (typeof loadProvinces === 'function') {
+                            loadProvinces();
+                        } else {
+                            resetSelect(provinceSelect, 'Selecione a província');
+                            resetSelect(citySelect, 'Selecione a cidade');
+                            resetSelect(neighborhoodSelect, 'Selecione o bairro');
+                            citySelect.disabled = true;
+                            neighborhoodSelect.disabled = true;
+                        }
+                    }
+                })
+                .catch((err) => {
+                    setHint(err && err.message ? err.message : 'Erro ao enviar cadastro.', true);
+                })
+                .finally(() => {
+                    if (submitBtn) submitBtn.disabled = false;
+                });
         });
     }
 });
