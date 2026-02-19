@@ -73,7 +73,7 @@
                         <button type="button" class="btn btn-primary btn-large" id="open-appointment-modal">
                             <span>📞 Agende sua Consulta</span>
                         </button>
-                        <a href="https://wa.me/258861661018" class="btn btn-whatsapp btn-large">
+                        <a href="https://wa.me/258861661018?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20consulta." class="btn btn-whatsapp btn-large">
                             <span>💬 Fale no WhatsApp</span>
                         </a>
                     </div>
@@ -204,7 +204,7 @@
                     <a href="tel:+258861661018" class="btn btn-white btn-large">
                         <span>📞 Ligar Agora</span>
                     </a>
-                    <a href="https://wa.me/258861661018" class="btn btn-whatsapp btn-large">
+                    <a href="https://wa.me/258861661018?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20consulta." class="btn btn-whatsapp btn-large">
                         <span>💬 WhatsApp</span>
                     </a>
                 </div>
@@ -298,7 +298,7 @@
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/258861661018" class="whatsapp-float" aria-label="Fale no WhatsApp">
+    <a href="https://wa.me/258869822157?text=Ol%C3%A1%21%20Gostaria%20de%20mais%20informa%C3%A7%C3%B5es." class="whatsapp-float" aria-label="Fale no WhatsApp">
         <span>💬</span>
     </a>
 
@@ -317,8 +317,8 @@
                 <div class="modal-panel is-active" role="tabpanel" id="tab-agendar" aria-labelledby="tab-btn-agendar" data-panel="agendar">
                     <p class="modal-text">Para agendar mais rápido, fale conosco pelo WhatsApp ou ligue.</p>
                     <div class="modal-actions">
-                        <a href="tel:+258861661018" class="btn btn-primary">📞 Ligar Agora</a>
-                        <a href="https://wa.me/258861661018" class="btn btn-whatsapp">💬 WhatsApp</a>
+                        <a href="tel:+258869822157" class="btn btn-primary">📞 Ligar Agora</a>
+                        <a href="https://wa.me/258869822157?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20uma%20consulta." class="btn btn-whatsapp">💬 WhatsApp</a>
                     </div>
                 </div>
 
